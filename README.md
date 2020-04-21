@@ -1,6 +1,13 @@
 ## Follow this
 https://www.mynotepaper.com/mount-google-drive-using-gdrive-on-linux-server-with-own-oauth-credentials
 
+## Backup and delete old backup script
+
+/usr/local/bin/gdrive upload --parent 1aMEzJ2GLMiIKtUmpklXsYW3AxWkyKY3x /backup/`date +%Y%m%d`-code-db-docs.tar.gz
+
+/usr/local/bin/gdrive delete $(gdrive list -q "name='`date +%Y%m%d -d '-31 days'`-code-db-docs.tar.gz'"  |  awk 'NR > 1 { printf "%s", $1 }')
+
+
 gdrive
 ======
 
